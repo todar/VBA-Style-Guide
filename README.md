@@ -7,6 +7,7 @@
 ## Table of Contents
  
  1. [Naming Conventions](#naming-conventions)
+ 1. [Variables](#variables)
  1. [Comments](#comments)
  1. [Design](#design)
 
@@ -59,16 +60,29 @@
     ```
   **[⬆ back to top](#table-of-contents)**
 
+## Variables
+
+<a name="variables-keep-local"></a><a name="2.1"></a>
+  - [2.1](#variables-keep-local) Aim to keep variables local using the `Private` keyword. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+      ```vb
+    ' bad
+    Public Const FileName as string = "C:\"
+
+    ' good
+    Private Const FileName as string = "C:\"
+    ```
+  **[⬆ back to top](#table-of-contents)**
+
 ## Comments
 
-  <a name="description-header-comment"></a><a name="2.1"></a>
-  - [2.1](#description-header-comment) Above the function should be a simple description of what the function does.
+  <a name="description-header-comment"></a><a name="3.1"></a>
+  - [3.1](#description-header-comment) Above the function should be a simple description of what the function does.
 
-  <a name="doc--comment"></a><a name="2.2"></a>
-  - [2.1](#doc--comment) Just inside the function is where I will put important details. This could be author, library references, notes, Ect. I've styled this to be similar to [JSDoc documentation](https://devdocs.io/jsdoc/). 
+  <a name="doc--comment"></a><a name="3.2"></a>
+  - [3.1](#doc--comment) Just inside the function is where I will put important details. This could be author, library references, notes, Ect. I've styled this to be similar to [JSDoc documentation](https://devdocs.io/jsdoc/). 
 
-  <a name="descriptive--comment"></a><a name="2.1"></a>
-  - [2.1](#descriptive--comment) Notes should be clear and full sentences. Explain anything that doesn't immediatly make sence from the code.
+  <a name="descriptive--comment"></a><a name="3.1"></a>
+  - [3.1](#descriptive--comment) Notes should be clear and full sentences. Explain anything that doesn't immediatly make sence from the code.
 
   **[⬆ back to top](#table-of-contents)**
 
