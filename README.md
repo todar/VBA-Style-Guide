@@ -1,8 +1,8 @@
-# VBA Style Guide() As Awesome
+# VBA Style Guide()
 
 *A mostly reasonable approach to VBA.*
 
-> Note: this guide assumes you are using Excel, but most concepts can be applied to other applications.
+> Note: this guide is from an Excel viewpoint, but most concepts can be applied to other applications. Also, this is currently under contruction and will be added to as I can.
 
 ## Table of Contents
  
@@ -29,16 +29,25 @@
     ```
 
   <a name="pascal--case"></a><a name="1.2"></a>
-  - [1.2](#pascal--case) Use PascalCase for all your naming.
+  - [1.2](#pascal--case) Use PascalCase as the default naming convention.
     ```vb
     ' good
     Function GreetUser ()
       ' ...
     End Function
     ```
+    
+  <a name="camel--case"></a><a name="1.3"></a>
+  - [1.3](#camel--case) Use camelCase for parameters and local variables and functions.
+    ```vb
+    ' good
+    Private Function sayName (ByVal name as string)
+      ' ...
+    End Function
+    ```
 
-  <a name="underscore--case"></a><a name="1.3"></a>
-  - [1.3](#underscore--case) Do not use underscore case.
+  <a name="underscore--case"></a><a name="1.4"></a>
+  - [1.4](#underscore--case) Do not use underscore case.
     
     > Why? VBA uses underscores for pointing out events and implementation. In fact, you can't implement another class if the other class has any public methods or properties with an underscore in the name otherwise you will get the error [Bad interface for Implements: method has underscore in name](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/bad-interface-for-implements-method-has-underscore-in-name).
     ```vb
@@ -48,15 +57,6 @@
     ' good
     Dim FirstName as String
     ```
-  <a name="camel--case"></a><a name="1.4"></a>
-  - [1.4](#camel--case) Use camelCase for parameters and local variables and functions.
-    ```vb
-    ' good
-    Private Function sayName (ByVal name as string)
-      ' ...
-    End Function
-    ```
-    
   **[⬆ back to top](#table-of-contents)**
 
 ## Comments
