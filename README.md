@@ -2,7 +2,7 @@
 
 *A mostly reasonable approach to VBA.*
 
-> Note: this guide is from an Excel viewpoint, but most concepts can be applied to other applications. Also, this is currently under contruction and will be added to as I can.
+> Note: this is in it's **early stages and is currently under contruction**. I will be adding to it as I can!
 
 ## Table of Contents
  
