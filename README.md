@@ -62,8 +62,51 @@
 
 ## Variables
 
-<a name="variables-keep-local"></a><a name="2.1"></a>
-  - [2.1](#variables-keep-local) Aim to keep variables local using the `Private` keyword. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+  <a name="declare-where-used"></a><a name="2.1"></a>
+  - [2.1](#declare-where-used) Declare variables next to where they are going to be used.
+
+  > Why? This makes maintaing the code much easier. When you have a wall of declarations at the top of a procedure it is difficult modify and refactor if needed. Also, you have to scroll up and down to see if a variable is used or not.
+  ```vb
+    ' bad
+    Private Sub SomeMethod(ByVal Path As String)
+    
+        Dim FSO As Object
+        Dim Folder As Object
+        Dim Files As Object
+        Dim File As Object
+        
+        Set FSO = CreateObject("Scripting.FileSystemObject")
+        Set Folder = FSO.GetFolder(Path)
+        Set Files = Folder.Files
+
+        For Each File In Files
+            '...
+        Next
+
+    End Sub
+
+    ' good
+    Private Sub SomeMethod(ByVal Path As String)
+    
+        Dim FSO As Object
+        Set FSO = CreateObject("Scripting.FileSystemObject")
+        
+        Dim Folder As Object
+        Set Folder = FSO.GetFolder(Path)
+        
+        Dim Files As Object
+        Set Files = Folder.Files
+        
+        Dim File As Object
+        For Each File In Files
+            '...
+        Next
+
+    End Sub
+  ```
+
+  <a name="keep-variables-local"></a><a name="2.2"></a>
+  - [2.2](#keep-variables-local) Aim to keep variables local using the `Private` keyword. We want to avoid polluting the global namespace. Captain Planet warned us of that.
       ```vb
     ' bad
     Public Const FileName as string = "C:\"
@@ -89,8 +132,6 @@
 
 ## Design
 
-  Functions should be as small as possible designed to resusable. This means they should be very readable.
-
-  Declarations should be made where the variables are needed. Notice `Dim Index as Long` is declared right before the loop. This makes it easier to read, debug, and refactor if need be.
+  Functions should be as small as possible designed to resusable. This means they should be very readable. There should not be giant procedures. Anytime there is a section of code that is seperated by a giant comment block, ask yourself if this needs to get extracted into it's own function.
 
   **[⬆ back to top](#table-of-contents)**
