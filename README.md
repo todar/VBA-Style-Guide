@@ -119,7 +119,7 @@
 ## Comments
 
   <a name="description-header-comment"></a><a name="3.1"></a>
-  - [3.1](#description-header-comment) Above the function should be a simple description of what the function does.
+  - [3.1](#description-header-comment) Above the function should be a simple description of what the function does. Keep it simple.
 
   <a name="doc--comment"></a><a name="3.2"></a>
   - [3.1](#doc--comment) Just inside the function is where I will put important details. This could be author, library references, notes, Ect. I've styled this to be similar to [JSDoc documentation](https://devdocs.io/jsdoc/). 
@@ -132,6 +132,8 @@
 
 ## Design
 
-  Functions should be as small as possible designed to resusable. This means they should be very readable. There should not be giant procedures. Anytime there is a section of code that is seperated by a giant comment block, ask yourself if this needs to get extracted into it's own function.
+  - Functions should be small.
+  - Functions should be pure.
+  - Anytime there is a section of code that is seperated by a giant comment block, ask yourself if this needs to get extracted into it's own function.
 
   **[⬆ back to top](#table-of-contents)**
