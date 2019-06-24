@@ -41,7 +41,7 @@
   <a name="camel--case"></a><a name="1.3"></a>
   - [1.3](#camel--case) Use camelCase for parameters and local variables and functions.
   
-    > Microsofts convention is [PascalCase](https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/program-structure/naming-conventions) for everything. Most important thing is to be consistent in whatever convention you use.
+    > [Microsofts convention](https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/program-structure/naming-conventions) is **PascalCase** for everything. The most important thing is to be consistent in whatever convention you use.
     ```vb
     ' good
     Private Function sayName (ByVal name as string)
@@ -112,8 +112,8 @@
 
 ## Variables
 
-  <a name="declare-where-used"></a><a name="2.1"></a>
-  - [2.1](#declare-where-used) Declare variables next to where they are going to be used.
+  <a name="declare-variables-where-used"></a><a name="2.1"></a>
+  - [2.1](#declare-variables-where-used") Declare variables next to where they are going to be used.
 
   > Why? This makes maintaing the code much easier. When you have a wall of declarations at the top of a procedure it is difficult modify and refactor if needed. Also, you have to scroll up and down to see if a variable is used or not.
   ```vb
