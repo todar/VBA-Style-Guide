@@ -40,6 +40,7 @@
     
   <a name="camel--case"></a><a name="1.3"></a>
   - [1.3](#camel--case) Use camelCase for parameters and local variables and functions.
+  
     > Microsofts convention is [PascalCase](https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/program-structure/naming-conventions) for everything. Most important thing is to be consistent in whatever convention you use.
     ```vb
     ' good
