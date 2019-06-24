@@ -24,7 +24,7 @@
 
     ' good
     Function Query ()
-        Dim RecordIndex as Long
+        Dim recordIndex as Long
         ' ...
     End Function
     ```
@@ -40,6 +40,7 @@
     
   <a name="camel--case"></a><a name="1.3"></a>
   - [1.3](#camel--case) Use camelCase for parameters and local variables and functions.
+    > Microsofts convention is [PascalCase](https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/program-structure/naming-conventions) for everything. Most important thing is to be consistent in whatever convention you use.
     ```vb
     ' good
     Private Function sayName (ByVal name as string)
@@ -56,8 +57,56 @@
     Dim First_Name as String
 
     ' good
-    Dim FirstName as String
+    Dim firstName as String
     ```
+    
+  <a name="system--hungarian"></a><a name="1.5"></a>
+  - [1.5](#system--hungarian) Don't use Systems Hungarian.
+  
+    > Why? These are usless prefixes that serve no purpose and can obscure the variables name.
+    ```vb
+    ' very bad
+    Dim strString as String
+    Dim oRange as Range
+
+    ' bad
+    Dim sName as String
+    Dim rngData as Range
+    Dim iCount as Integer
+
+    ' good
+    Dim firstName as String
+    Dim queryData as Range
+    Dim rowIndex as Integer
+    ```
+
+  <a name="abbreviations"></a><a name="1.6"></a>
+  - [1.6](#abbreviations) Don't use abbreviations.
+    ```vb
+    ' bad
+    Function GetWin()
+        ' ...
+    End Function
+
+    ' good
+    Function GetWindow()
+        ' ...
+    End Function
+    ```
+
+  <a name="descriptive--names"></a><a name="1.7"></a>
+  - [1.7](#descriptive--names) Be descriptive and use easily readable identifier names. Use verbs to describe action. Programming is about reading code!
+    ```vb
+    ' very bad
+    Dim x As Boolean
+
+    ' bad
+    Dim scrollableX As Boolean
+
+    ' good
+    Dim canScrollHorizontally As Boolean
+    ```
+
   **[⬆ back to top](#table-of-contents)**
 
 ## Variables
@@ -68,37 +117,37 @@
   > Why? This makes maintaing the code much easier. When you have a wall of declarations at the top of a procedure it is difficult modify and refactor if needed. Also, you have to scroll up and down to see if a variable is used or not.
   ```vb
     ' bad
-    Private Sub SomeMethod(ByVal Path As String)
+    Private Sub SomeMethod(ByVal path As String)
     
         Dim FSO As Object
-        Dim Folder As Object
-        Dim Files As Object
-        Dim File As Object
+        Dim folder As Object
+        Dim files As Object
+        Dim file As Object
         
         Set FSO = CreateObject("Scripting.FileSystemObject")
-        Set Folder = FSO.GetFolder(Path)
-        Set Files = Folder.Files
+        Set folder = FSO.GetFolder(path)
+        Set files = folder.Files
 
-        For Each File In Files
+        For Each file In files
             '...
         Next
 
     End Sub
 
     ' good
-    Private Sub SomeMethod(ByVal Path As String)
+    Private Sub SomeMethod(ByVal path As String)
     
         Dim FSO As Object
         Set FSO = CreateObject("Scripting.FileSystemObject")
         
-        Dim Folder As Object
-        Set Folder = FSO.GetFolder(Path)
+        Dim folder As Object
+        Set folder = FSO.GetFolder(path)
         
         Dim Files As Object
-        Set Files = Folder.Files
+        Set Files = folder.Files
         
-        Dim File As Object
-        For Each File In Files
+        Dim file As Object
+        For Each file In files
             '...
         Next
 
@@ -112,7 +161,7 @@
     Public Const FileName as string = "C:\"
 
     ' good
-    Private Const FileName as string = "C:\"
+    Private Const fileName as string = "C:\"
     ```
   **[⬆ back to top](#table-of-contents)**
 
