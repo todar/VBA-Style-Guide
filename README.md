@@ -62,7 +62,7 @@
     ```
     
   <a name="system--hungarian"></a><a name="1.5"></a>
-  - [1.5](#system--hungarian) Don't use Systems Hungarian.
+  - [1.5](#system--hungarian) Do not use Systems Hungarian.
   
     > Why? These are usless prefixes that serve no purpose and can obscure the variables name.
     ```vb
@@ -82,7 +82,7 @@
     ```
 
   <a name="abbreviations"></a><a name="1.6"></a>
-  - [1.6](#abbreviations) Don't use abbreviations.
+  - [1.6](#abbreviations) Do not use abbreviations.
     ```vb
     ' bad
     Function GetWin()
@@ -96,7 +96,7 @@
     ```
 
   <a name="descriptive--names"></a><a name="1.7"></a>
-  - [1.7](#descriptive--names) Be descriptive and use easily readable identifier names. Use verbs to describe action. Programming is about reading code!
+  - [1.7](#descriptive--names) Be descriptive and use easily readable identifier names. Programming is more about reading code!
     ```vb
     ' very bad
     Dim x As Boolean
@@ -113,14 +113,14 @@
 ## Variables
 
   <a name="declare-variables-where-used"></a><a name="2.1"></a>
-  - [2.1](#declare-variables-where-used") Declare variables next to where they are going to be used.
+  - [2.1](#declare-variables-where-used") Declare variables next to where they are going to be used, within reason.
 
   > Why? This makes maintaing the code much easier. When you have a wall of declarations at the top of a procedure it is difficult modify and refactor if needed. Also, you have to scroll up and down to see if a variable is used or not.
   ```vb
     ' bad
-    Private Sub SomeMethod(ByVal path As String)
+    Private Sub someMethod(ByVal path As String)
     
-        Dim FSO As Object
+        Dim fileSystem As Object
         Dim folder As Object
         Dim files As Object
         Dim file As Object
@@ -136,7 +136,7 @@
     End Sub
 
     ' good
-    Private Sub SomeMethod(ByVal path As String)
+    Private Sub someMethod(ByVal path As String)
     
         Dim FSO As Object
         Set FSO = CreateObject("Scripting.FileSystemObject")
