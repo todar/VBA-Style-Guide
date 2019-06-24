@@ -251,7 +251,7 @@
 
   <a name="description-header-comment"></a><a name="4.1"></a>
   - [4.1](#description-header-comment) Above the function should be a simple description of what the function does. Keep it simple.
-    ```
+    ```vb
     ' Adds new element(s) to an array (at the end) and returns the new array length.
     Function PushToArray(ByRef SourceArray As Variant, ParamArray Element() As Variant) As Long
        '...
