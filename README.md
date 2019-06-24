@@ -18,14 +18,14 @@
     ```vb
     ' bad
     Function Q ()
-      Dim i as Long
-      ' ...
+        Dim i as Long
+        ' ...
     End Function
 
     ' good
     Function Query ()
-      Dim RecordIndex as Long
-      ' ...
+        Dim RecordIndex as Long
+        ' ...
     End Function
     ```
 
@@ -34,7 +34,7 @@
     ```vb
     ' good
     Function GreetUser ()
-      ' ...
+        ' ...
     End Function
     ```
     
@@ -43,7 +43,7 @@
     ```vb
     ' good
     Private Function sayName (ByVal name as string)
-      ' ...
+        ' ...
     End Function
     ```
 
