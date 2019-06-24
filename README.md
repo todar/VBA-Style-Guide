@@ -183,7 +183,7 @@
     ```
 
   <a name="use-option-explicit"></a><a name="2.4"></a>
-  - [2.4](#use-option-explicit) Use `Option Explicit` to ensure all variables are explicitly declared.
+  - [2.4](#use-option-explicit) Use [`Option Explicit`](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/option-explicit-statement) to ensure all variables are explicitly declared.
   
     ```vb
     ' good
@@ -251,12 +251,36 @@
 
   <a name="description-header-comment"></a><a name="4.1"></a>
   - [4.1](#description-header-comment) Above the function should be a simple description of what the function does. Keep it simple.
+    ```
+    ' Adds new element(s) to an array (at the end) and returns the new array length.
+    Function PushToArray(ByRef SourceArray As Variant, ParamArray Element() As Variant) As Long
+       '...
+    End Function
+    ```
+  
 
   <a name="doc--comment"></a><a name="4.2"></a>
   - [4.2](#doc--comment) Just inside the function is where I will put important details. This could be author, library references, notes, Ect. I've styled this to be similar to [JSDoc documentation](https://devdocs.io/jsdoc/). 
+     ```
+    ' Adds new element(s) to an array (at the end) and returns the new array length.
+    Function PushToArray(ByRef SourceArray As Variant, ParamArray Element() As Variant) As Long
+        ' @author: Robert Todar <https://github.com/todar>
+        ' @param: <SourceArray> can be either 1 or 2 dimensional array.
+        ' @param: <Element> are the elements to be added.
+        ' @ref: No Library references needed =)
+        
+        '...
+    End Function
+    ```
 
   <a name="descriptive--comment"></a><a name="4.3"></a>
   - [4.3](#descriptive--comment) Notes should be clear and full sentences. Explain anything that doesn't immediatly make sence from the code.
+    ```
+    'Need to check to make sure there are records to pull from.
+    If rs.BOF Or rs.EOF Then
+        Exit Function
+    End If
+    ```
 
   <a name="actionitems"></a><a name="4.4"></a>
   - [4.4](#actionitems) Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you’re pointing out a problem that needs to be revisited, or if you’re suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
