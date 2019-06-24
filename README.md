@@ -8,13 +8,15 @@
  
  1. [Naming Conventions](#naming-conventions)
  1. [Variables](#variables)
- 1. [Comments](#comments)
- 1. [Design](#design)
+ 1. [Functions](#functions)
+ 3. [Comments](#comments)
+ 4. [Design](#design)
 
 ## Naming Conventions
 
   <a name="single--letter--names"></a><a name="1.1"></a>
   - [1.1](#single--letter--names) Avoid single letter names. Be descriptive with your naming.
+    
     ```vb
     ' bad
     Function Q ()
@@ -113,7 +115,7 @@
 ## Variables
 
   <a name="declare-variables-where-used"></a><a name="2.1"></a>
-  - [2.1](#declare-variables-where-used") Declare variables next to where they are going to be used, within reason.
+  - [2.1](#declare-variables-where-used") Declare and assign variables next to where they are going to be used, but place them in a reasonable place..
 
   > Why? This makes maintaing the code much easier. When you have a wall of declarations at the top of a procedure it is difficult modify and refactor if needed. Also, you have to scroll up and down to see if a variable is used or not.
   ```vb
@@ -156,7 +158,7 @@
   ```
 
   <a name="keep-variables-local"></a><a name="2.2"></a>
-  - [2.2](#keep-variables-local) Aim to keep variables local using the `Private` keyword. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+  - [2.2](#keep-variables-local) Prefer to keep variables local using the `Private` keyword. We want to avoid polluting the global namespace. Captain Planet warned us of that.
       ```vb
     ' bad
     Public Const FileName as string = "C:\"
@@ -164,18 +166,100 @@
     ' good
     Private Const fileName as string = "C:\"
     ```
+
+  <a name="no-unused-variables"></a><a name="2.3"></a>
+  - [2.3](#no-unused-variables) Disallow unused variables.
+
+    > Why? Variables that are declared and not used anywhere in the code are most likely an error due to incomplete refactoring. Such variables take up space in the code and can lead to confusion by readers.
+
+    ```vb
+    ' bad
+    Dim someUnusedVariable as String
+
+    ' good
+    Dim message as string
+    message = "I will be used!"
+    Msgbox Messgae
+    ```
+
+  <a name="use-option-explicit"></a><a name="2.4"></a>
+  - [2.4](#use-option-explicit) Use `Option Explicit` to ensure all variables are explicitly declared.
+  
+    ```vb
+    ' good
+    Option Explicit
+
+    Sub doSomething()
+        x = 1 ' <~ Compile error: Variable not defined
+    End Sub
+    ```
+
+  <a name="no-one-line-declarations"></a><a name="2.5"></a>
+  - [2.5](#no-one-line-declarations) Use one `Dim` declaration per variable or assignment.
+
+    > Why? It's easier to read and debug going back. It also prevents variables accidentily being delcared as Variants.
+  
+    ```vb
+    ' very bad
+    Dim lastRow, lastColumn As Long '<~ lastRow is a Variant, NOT a long
+
+    ' bad
+    Dim lastRow As Long, lastColumn As Long
+
+    ' good
+    Dim lastRow As Long
+    Dim lastColumn As Long
+    ```
+
+  <a name="decalare-variable-types"></a><a name="2.6"></a>
+  - [2.6](#decalare-variable-types) Declare all variable types explicitly.
+
+    ```vb
+    ' bad
+    Dim row
+    Dim name
+    Dim cell
+
+    ' good
+    Dim row As Long
+    Dim name As String
+    Dim cell As Range
+    ```
+
   **[⬆ back to top](#table-of-contents)**
+
+## Functions
+
+  <a name="functions--mutate-params"></a><a name="3.1"></a>
+  - [3.1](#functions--mutate-params") Prefer `ByVal` for parameters.
+
+    > Why? Reassigning and mutating parameters can lead to unexpected behavior and errors. `ByRef` is very helpful at times, but general rule is to default to `ByVal`.
+
+    ```vb
+    ' bad
+    Function doSomething(name As String) As String
+
+    ' ok
+    Function doSomething(ByRef outName As String) As Boolean
+
+    ' good
+    Function doSomething(ByVal name As String) As String
+    ```
+
 
 ## Comments
 
-  <a name="description-header-comment"></a><a name="3.1"></a>
-  - [3.1](#description-header-comment) Above the function should be a simple description of what the function does. Keep it simple.
+  <a name="description-header-comment"></a><a name="4.1"></a>
+  - [4.1](#description-header-comment) Above the function should be a simple description of what the function does. Keep it simple.
 
-  <a name="doc--comment"></a><a name="3.2"></a>
-  - [3.1](#doc--comment) Just inside the function is where I will put important details. This could be author, library references, notes, Ect. I've styled this to be similar to [JSDoc documentation](https://devdocs.io/jsdoc/). 
+  <a name="doc--comment"></a><a name="4.2"></a>
+  - [4.2](#doc--comment) Just inside the function is where I will put important details. This could be author, library references, notes, Ect. I've styled this to be similar to [JSDoc documentation](https://devdocs.io/jsdoc/). 
 
-  <a name="descriptive--comment"></a><a name="3.1"></a>
-  - [3.1](#descriptive--comment) Notes should be clear and full sentences. Explain anything that doesn't immediatly make sence from the code.
+  <a name="descriptive--comment"></a><a name="4.3"></a>
+  - [4.3](#descriptive--comment) Notes should be clear and full sentences. Explain anything that doesn't immediatly make sence from the code.
+
+  <a name="actionitems"></a><a name="4.4"></a>
+  - [4.4](#actionitems) Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you’re pointing out a problem that needs to be revisited, or if you’re suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
 
   **[⬆ back to top](#table-of-contents)**
 
