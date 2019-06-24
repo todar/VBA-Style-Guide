@@ -30,7 +30,7 @@
     ```
 
   <a name="pascal--case"></a><a name="1.2"></a>
-  - [1.2](#pascal--case) Use PascalCase as the default naming convention.
+  - [1.2](#pascal--case) Use PascalCase as the default naming convention for anything global.
     ```vb
     ' good
     Function GreetUser ()
