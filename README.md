@@ -261,7 +261,7 @@
 
   <a name="doc--comment"></a><a name="4.2"></a>
   - [4.2](#doc--comment) Just inside the function is where I will put important details. This could be author, library references, notes, Ect. I've styled this to be similar to [JSDoc documentation](https://devdocs.io/jsdoc/). 
-     ```
+     ```vb
     ' Adds new element(s) to an array (at the end) and returns the new array length.
     Function PushToArray(ByRef SourceArray As Variant, ParamArray Element() As Variant) As Long
         ' @author: Robert Todar <https://github.com/todar>
@@ -275,7 +275,7 @@
 
   <a name="descriptive--comment"></a><a name="4.3"></a>
   - [4.3](#descriptive--comment) Notes should be clear and full sentences. Explain anything that doesn't immediatly make sence from the code.
-    ```
+    ```vb
     'Need to check to make sure there are records to pull from.
     If rs.BOF Or rs.EOF Then
         Exit Function
