@@ -144,8 +144,8 @@
         Dim folder As Object
         Set folder = FSO.GetFolder(path)
         
-        Dim Files As Object
-        Set Files = folder.Files
+        Dim files As Object
+        Set files = folder.Files
         
         Dim file As Object
         For Each file In files
