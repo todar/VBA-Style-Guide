@@ -2,7 +2,7 @@
 
 *A mostly reasonable approach to VBA.*
 
-> Note: this is in it's **early stages and is currently under contruction**. I will be adding to it as I can!
+> Note: this is in it's **early stages and is currently under construction**. I will be adding to it as I can!
 
 ## Table of Contents
  
@@ -66,7 +66,7 @@
   <a name="system--hungarian"></a><a name="1.5"></a>
   - [1.5](#system--hungarian) Do not use Systems Hungarian.
   
-    > Why? These are usless prefixes that serve no purpose and can obscure the variables name.
+    > Why? These are useless prefixes that serve no purpose and can obscure the variables name.
     ```vb
     ' very bad
     Dim strString as String
@@ -115,9 +115,9 @@
 ## Variables
 
   <a name="declare-variables-where-used"></a><a name="2.1"></a>
-  - [2.1](#declare-variables-where-used") Declare and assign variables next to where they are going to be used, but place them in a reasonable place..
+  - [2.1](#declare-variables-where-used") Declare and assign variables next to where they are going to be used, but place them in a reasonable place.
 
-  > Why? This makes maintaing the code much easier. When you have a wall of declarations at the top of a procedure it is difficult modify and refactor if needed. Also, you have to scroll up and down to see if a variable is used or not.
+  > Why? This makes maintaining the code much easier. When you have a wall of declarations at the top of a procedure it is difficult to modify and refactor if needed. Also, you have to scroll up and down to see if a variable is used or not.
   ```vb
     ' bad
     Private Sub someMethod(ByVal path As String)
@@ -197,7 +197,7 @@
   <a name="no-one-line-declarations"></a><a name="2.5"></a>
   - [2.5](#no-one-line-declarations) Use one `Dim` declaration per variable or assignment.
 
-    > Why? It's easier to read and debug going back. It also prevents variables accidentily being delcared as Variants.
+    > Why? It's easier to read and debug going back. It also prevents variables from accidentally being declared as Variants.
   
     ```vb
     ' very bad
@@ -233,7 +233,7 @@
   <a name="functions--mutate-params"></a><a name="3.1"></a>
   - [3.1](#functions--mutate-params") Prefer `ByVal` for parameters.
 
-    > Why? Reassigning and mutating parameters can lead to unexpected behavior and errors. `ByRef` is very helpful at times, but general rule is to default to `ByVal`.
+    > Why? Reassigning and mutating parameters can lead to unexpected behavior and errors. `ByRef` is very helpful at times, but the general rule is to default to `ByVal`.
 
     ```vb
     ' bad
@@ -260,7 +260,7 @@
   
 
   <a name="doc--comment"></a><a name="4.2"></a>
-  - [4.2](#doc--comment) Just inside the function is where I will put important details. This could be author, library references, notes, Ect. I've styled this to be similar to [JSDoc documentation](https://devdocs.io/jsdoc/). 
+  - [4.2](#doc--comment) Just inside the function is where I will put important details. This could be the author, library references, notes, Ect. I've styled this to be similar to [JSDoc documentation](https://devdocs.io/jsdoc/). 
      ```vb
     ' Adds new element(s) to an array (at the end) and returns the new array length.
     Function PushToArray(ByRef SourceArray As Variant, ParamArray Element() As Variant) As Long
@@ -274,7 +274,7 @@
     ```
 
   <a name="descriptive--comment"></a><a name="4.3"></a>
-  - [4.3](#descriptive--comment) Notes should be clear and full sentences. Explain anything that doesn't immediatly make sence from the code.
+  - [4.3](#descriptive--comment) Notes should be clear and full sentences. Explain anything that doesn't immediately make sense from the code.
     ```vb
     'Need to check to make sure there are records to pull from.
     If rs.BOF Or rs.EOF Then
@@ -292,6 +292,6 @@
 
   - Functions should be small.
   - Functions should be pure.
-  - Anytime there is a section of code that is seperated by a giant comment block, ask yourself if this needs to get extracted into it's own function.
+  - Anytime there is a section of code that is separated by a giant comment block, ask yourself if this needs to get extracted into it's own function.
 
   **[⬆ back to top](#table-of-contents)**
