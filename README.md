@@ -9,8 +9,9 @@
  1. [Naming Conventions](#naming-conventions)
  1. [Variables](#variables)
  1. [Functions](#functions)
- 3. [Comments](#comments)
- 4. [Design](#design)
+ 1. [Comments](#comments)
+ 1. [Performance](#performance)
+ 1. [Design](#design)
 
 ## Naming Conventions
 
@@ -287,6 +288,30 @@
 
   **[⬆ back to top](#table-of-contents)**
 
+## Performance
+
+  <a name="avoid-using-select"></a><a name="5.1"></a>
+  - [5.1](#avoid-using-select) [Avoid using select in Excel](https://stackoverflow.com/q/10714251/8309643).
+   
+    > Why? It slows down code and also can cause runtime errors. `Select` should only be used for visual reasons such as the users next task is doing something in that specific cell.
+    
+    ```vb
+    ' bad
+    Range("A1").Select
+    ActiveCell.Value = "Darth Vader"
+    
+    ' ok
+    Dim cell As Range
+    Set cell = ActiveSheet.ActiveCell
+    cell.Value = "Lando Calrissian"
+    
+    ' good
+    With Workbooks("Star Wars").Worksheets("Characters").Range("Hero")
+        .Value = "Luke Skywalker"
+    End With
+    ```
+
+  **[⬆ back to top](#table-of-contents)**
 
 ## Design
 
