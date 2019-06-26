@@ -291,7 +291,7 @@
 ## Performance
 
   <a name="avoid-using-select"></a><a name="5.1"></a>
-  - [5.1](#avoid-using-select) [Avoid using select in Excel](https://stackoverflow.com/q/10714251/8309643).
+  - [5.1](#avoid-using-select) Avoid using select in Excel. [Stackoverflow Post](https://stackoverflow.com/q/10714251/8309643).
    
     > Why? It slows down code and also can cause runtime errors. `Select` should only be used for visual reasons such as the users next task is doing something in that specific cell.
     
