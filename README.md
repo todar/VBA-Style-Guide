@@ -277,7 +277,7 @@
   <a name="descriptive--comment"></a><a name="4.3"></a>
   - [4.3](#descriptive--comment) Notes should be clear and full sentences. Explain anything that doesn't immediately make sense from the code.
     ```vb
-    'Need to check to make sure there are records to pull from.
+    ' Need to check to make sure there are records to pull from.
     If rs.BOF Or rs.EOF Then
         Exit Function
     End If
@@ -291,7 +291,7 @@
 ## Performance
 
   <a name="avoid-using-select"></a><a name="5.1"></a>
-  - [5.1](#avoid-using-select) Avoid using select in Excel. [Stackoverflow Post](https://stackoverflow.com/q/10714251/8309643).
+  - [5.1](#avoid-using-select) Avoid using `Select` in Excel. See this [Stackoverflow Post](https://stackoverflow.com/q/10714251/8309643).
    
     > Why? It slows down code and also can cause runtime errors. `Select` should only be used for visual reasons such as the users next task is doing something in that specific cell.
     
