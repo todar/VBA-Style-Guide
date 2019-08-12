@@ -261,15 +261,19 @@
   
 
   <a name="doc--comment"></a><a name="4.2"></a>
-  - [4.2](#doc--comment) Just inside the function is where I will put important details. This could be the author, library references, notes, Ect. I've styled this to be similar to [JSDoc documentation](https://devdocs.io/jsdoc/). 
+  - [4.2](#doc--comment) Just above the function is where I will put important details. This could be the author, library references, notes, Ect. I've styled this to be similar to [JSDoc documentation](https://devdocs.io/jsdoc/).
+    
+    > I've decided to make this the same as JSDoc because there is no reason to recreate the wheel. This is a very known way of documenting and has plenty of documentation and examples already out there. This will keep your code consitent and easy for anyone to understand what is going on.
+    
      ```vb
-    ' Adds new element(s) to an array (at the end) and returns the new array length.
+    '/**  
+    ' * Adds new element(s) to an array (at the end) and returns the new array length.
+    ' * @author Robert Todar <https://github.com/todar>
+    ' * @param {Array<Variant>} SourceArray - can be either 1 or 2 dimensional array.
+    ' * @param {...Variant} Element - Are the elements to be added.
+    ' * @ref No Library references needed =)
+    ' */
     Function PushToArray(ByRef SourceArray As Variant, ParamArray Element() As Variant) As Long
-        ' @author: Robert Todar <https://github.com/todar>
-        ' @param: <SourceArray> can be either 1 or 2 dimensional array.
-        ' @param: <Element> are the elements to be added.
-        ' @ref: No Library references needed =)
-        
         '...
     End Function
     ```
