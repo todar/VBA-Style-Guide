@@ -122,7 +122,6 @@
   ```vb
     ' bad
     Private Sub someMethod(ByVal path As String)
-    
         Dim fileSystem As Object
         Dim folder As Object
         Dim files As Object
@@ -135,12 +134,10 @@
         For Each file In files
             '...
         Next
-
     End Sub
 
     ' good
     Private Sub someMethod(ByVal path As String)
-    
         Dim FSO As Object
         Set FSO = CreateObject("Scripting.FileSystemObject")
         
@@ -154,7 +151,6 @@
         For Each file In files
             '...
         Next
-
     End Sub
   ```
 
@@ -286,9 +282,31 @@
         Exit Function
     End If
     ```
+    
+  <a name="comment-newline"></a><a name="4.4"></a>
+  - [4.4](#comment-newline) Add a newline above a comment when the previous code is on same indention level. Otherwise, don't have a line break.
+    ```vb
+    ' bad
+    Private Sub doSomething()
+        
+        ' Different indention from line above, no need for newline above.
+        Application.ScreenUpdating = False
+        ' Same indention as previous code, must add a newline above to make it easy to read.
+        Application.ScreenUpdating = True
+    End Sub
+    
+    ' ok
+    Private Sub doSomething()
+        ' Different indention from line above, no new line.
+        Application.ScreenUpdating = False
+    
+        ' Same indention as previous code, add a newline above.
+        Application.ScreenUpdating = True
+    End Sub
+    ``` 
 
-  <a name="actionitems"></a><a name="4.4"></a>
-  - [4.4](#actionitems) Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you’re pointing out a problem that needs to be revisited, or if you’re suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
+  <a name="actionitems"></a><a name="4.5"></a>
+  - [4.5](#actionitems) Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you’re pointing out a problem that needs to be revisited, or if you’re suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
 
   **[⬆ back to top](#table-of-contents)**
 
