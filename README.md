@@ -1,8 +1,10 @@
 # VBA Style Guide()
 
+<a href="https://www.buymeacoffee.com/todar" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
+
 *A mostly reasonable approach to VBA.*
 
-> Note: this is in it's **early stages and is currently under construction**. I will be adding to it as I can!
+> Note: I will be adding to it as I can!
 
 ## Table of Contents
  
