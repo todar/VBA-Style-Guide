@@ -22,13 +22,13 @@
     
     ```vb
     ' bad
-    Function Q ()
+    Public Function Q ()
         Dim i as Long
         ' ...
     End Function
 
     ' good
-    Function Query ()
+    Public Function QueryMySQL ()
         Dim recordIndex as Long
         ' ...
     End Function
@@ -38,7 +38,7 @@
   - [1.2](#pascal--case) Use PascalCase as the default naming convention for anything global.
     ```vb
     ' good
-    Function GreetUser ()
+    Public Function GreetUser ()
         ' ...
     End Function
     ```
@@ -60,7 +60,7 @@
     > Why? VBA uses underscores for pointing out events and implementation. In fact, you can't implement another class if the other class has any public methods or properties with an underscore in the name otherwise you will get the error [Bad interface for Implements: method has underscore in name](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/bad-interface-for-implements-method-has-underscore-in-name).
     ```vb
     ' bad
-    Dim First_Name as String
+    Dim first_name as String
 
     ' good
     Dim firstName as String
@@ -90,12 +90,12 @@
   - [1.6](#abbreviations) Do not use abbreviations.
     ```vb
     ' bad
-    Function GetWin()
+    Public Function GetWin()
         ' ...
     End Function
 
     ' good
-    Function GetWindow()
+    Public Function GetWindow()
         ' ...
     End Function
     ```
@@ -189,7 +189,7 @@
     Option Explicit
 
     Sub doSomething()
-        x = 1 ' <~ Compile error: Variable not defined
+        x = 1 ' Compile error: Variable not defined
     End Sub
     ```
 
@@ -200,7 +200,7 @@
   
     ```vb
     ' very bad
-    Dim lastRow, lastColumn As Long '<~ lastRow is a Variant, NOT a long
+    Dim lastRow, lastColumn As Long ' lastRow is a Variant, NOT a long
 
     ' bad
     Dim lastRow As Long, lastColumn As Long
@@ -236,13 +236,13 @@
 
     ```vb
     ' bad
-    Function doSomething(name As String) As String
+    Private Function doSomething(name As String) As String
 
     ' ok
-    Function doSomething(ByRef outName As String) As Boolean
+    Private Function doSomething(ByRef outName As String) As Boolean
 
     ' good
-    Function doSomething(ByVal name As String) As String
+    Private Function doSomething(ByVal name As String) As String
     ```
 
 
@@ -339,8 +339,8 @@
 
 ## Design
 
-  - Functions should be small.
-  - Functions should be pure.
+  - Functions should be small and do only a single action (think lego blocks).
+  - Functions should be pure — meaning they should not mutate outside state and always return the same value when given the same inputs.
   - Anytime there is a section of code that is separated by a giant comment block, ask yourself if this needs to get extracted into it's own function.
 
   **[⬆ back to top](#table-of-contents)**
